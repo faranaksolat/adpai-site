@@ -1,0 +1,206 @@
+:root {
+  color-scheme: light;
+  --ink: #102e2b;
+  --teal: #073f41;
+  --cream: #faf8f0;
+  --lime: #d9eba8;
+  --muted: #4b635d;
+  --rule: #cfdbcd;
+  font-family: "Pretendard", "Noto Sans KR", "Malgun Gothic", "Apple SD Gothic Neo", system-ui, sans-serif;
+  line-height: 1.6;
+  color: var(--ink);
+  background: var(--cream);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+body, h1, h2, h3, p, figure { margin: 0; }
+a { color: inherit; text-underline-offset: .22em; }
+img { display: block; max-width: 100%; }
+:focus-visible { outline: 3px solid #679b35; outline-offset: 5px; }
+section[id] { scroll-margin-top: 1.5rem; }
+
+.wrap { width: min(1120px, 100% - 4rem); margin-inline: auto; }
+.topbar, .hero, footer { background: var(--teal); color: var(--cream); }
+.topbar-inner {
+  min-height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  border-bottom: 1px solid #ffffff2e;
+}
+.brand {
+  display: inline-flex;
+  gap: .62rem;
+  align-items: center;
+  font-size: 1.3rem;
+  font-weight: 800;
+  letter-spacing: .035em;
+  text-decoration: none;
+}
+.brand img { height: auto; }
+.topbar nav { display: flex; gap: clamp(1rem, 4vw, 2.6rem); }
+.topbar nav a, .top-cta {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  text-decoration: none;
+  font-size: .92rem;
+  font-weight: 650;
+}
+.topbar nav a:hover, footer a:hover { text-decoration: underline; }
+.top-cta { gap: .6rem; color: var(--lime); white-space: nowrap; }
+
+.hero-inner {
+  display: grid;
+  grid-template-columns: 1.07fr .93fr;
+  gap: clamp(1.5rem, 5vw, 5rem);
+  align-items: center;
+  min-height: 570px;
+  padding-block: 3.4rem;
+}
+.slogan {
+  color: var(--lime);
+  font-size: clamp(.93rem, 1.5vw, 1.1rem);
+  font-weight: 750;
+  letter-spacing: .035em;
+  margin-bottom: 1.1rem;
+}
+h1, h2, h3, .hero-description { word-break: keep-all; overflow-wrap: break-word; }
+h1 {
+  font-size: clamp(2.9rem, 5.5vw, 4.65rem);
+  line-height: 1.16;
+  letter-spacing: -.075em;
+  font-weight: 800;
+}
+h1 em { color: var(--lime); font-style: normal; }
+.hero-description { max-width: 24rem; color: #e0ebe0; margin-top: 1.5rem; font-size: clamp(1rem, 1.6vw, 1.19rem); }
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: 1.35rem;
+  min-height: 52px;
+  margin-top: 2rem;
+  padding: .7rem 1.15rem .7rem 1.3rem;
+  border-radius: .45rem;
+  text-decoration: none;
+  font-weight: 750;
+}
+.button-lime { background: var(--lime); color: #163530; }
+.button-lime:hover { background: #edf6ce; }
+.demo {
+  align-self: stretch;
+  min-width: 0;
+  display: grid;
+  align-content: center;
+  padding: 1rem 1rem .65rem;
+  border: 1px solid #c6e7c437;
+  border-radius: 1.1rem;
+  background: radial-gradient(ellipse at 60% 38%, #6f9d69 0%, #31695a 49%, #164d48 78%);
+}
+.demo-inner {
+  display: grid;
+  grid-template-columns: repeat(16, 1fr);
+  align-items: center;
+  min-height: 404px;
+  padding: 1.25rem .9rem .4rem;
+}
+.phone {
+  display: grid;
+  grid-row: 1;
+  overflow: hidden;
+  border: clamp(4px, .66vw, 8px) solid #1b312c;
+  border-radius: clamp(.75rem, 2vw, 1.55rem);
+  background: #fbfbf8;
+  box-shadow: 0 16px 30px #092b2766;
+}
+.phone img { width: 100%; height: auto; }
+.phone-back { grid-column: 2 / 10; transform: translateY(-8%); }
+.phone-front { grid-column: 8 / 16; z-index: 1; transform: translateY(4%); }
+.demo figcaption { text-align: center; color: #e5eee0; font-size: .78rem; }
+
+.how { padding-block: clamp(3.7rem, 7vw, 6rem); }
+h2 { font-size: clamp(1.8rem, 3.5vw, 2.7rem); line-height: 1.23; letter-spacing: -.064em; }
+.steps {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  list-style: none;
+  margin: 1.9rem 0 1.3rem;
+  padding: 0;
+  counter-reset: steps;
+}
+.steps li {
+  counter-increment: steps;
+  padding: 1.4rem;
+  border: 1px solid var(--rule);
+  border-radius: .8rem;
+  background: #fffffb;
+}
+.steps li::before {
+  content: counter(steps);
+  display: grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  background: #e6efce;
+  color: #244334;
+  border-radius: 50%;
+  font-weight: 750;
+  margin-bottom: .85rem;
+}
+h3 { font-size: 1.17rem; letter-spacing: -.03em; }
+.steps p, .team p { color: var(--muted); margin-top: .25rem; word-break: keep-all; }
+.label-note { color: var(--muted); font-size: .9rem; }
+
+.team { background: #e9efe3; }
+.team-inner {
+  display: grid;
+  grid-template-columns: 1fr .95fr;
+  align-items: center;
+  padding-block: clamp(2.7rem, 6vw, 4.5rem);
+  gap: 1.6rem 3rem;
+}
+.team h2 { margin-bottom: .65rem; }
+.founder {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.25rem;
+  border: 1px solid #c5d2c3;
+  border-radius: .8rem;
+}
+.founder img { flex: 0 0 auto; border-radius: .65rem; }
+.founder h3 span { display: inline-block; color: var(--muted); font-size: .92rem; font-weight: 600; margin-inline-start: .35rem; }
+.founder p { margin-top: .12rem; font-size: .89rem; }
+.footer-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .45rem 1.5rem;
+  padding-block: 1.1rem;
+  font-size: .88rem;
+}
+.footer-inner > span { font-weight: 800; letter-spacing: .04em; }
+.footer-inner a { display: inline-flex; align-items: center; gap: .3rem; min-height: 44px; text-decoration: none; }
+
+@media (max-width: 800px) {
+  .wrap { width: calc(100% - 2.5rem); }
+  .hero-inner { min-height: 0; }
+  .demo-inner { min-height: 295px; padding-inline: .15rem; }
+}
+
+@media (max-width: 620px) {
+  .topbar-inner { min-height: 62px; }
+  .topbar nav { display: none; }
+  .hero-inner { grid-template-columns: 1fr; gap: 2.1rem; padding-block: 2.5rem 1.7rem; }
+  h1 { font-size: clamp(2.35rem, 9vw, 3.4rem); }
+  .hero-description { margin-top: 1rem; }
+  .button { margin-top: 1.3rem; }
+  .demo { width: min(100%, 408px); justify-self: center; }
+  .demo-inner { min-height: 0; padding-block: 1.55rem 1.2rem; }
+  .steps, .team-inner { grid-template-columns: 1fr; }
+  .steps { gap: .7rem; }
+  .steps li { padding: 1.05rem 1.15rem; }
+  .founder h3 span { margin-inline-start: 0; }
+}
