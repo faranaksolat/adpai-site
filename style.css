@@ -204,3 +204,6 @@ h3 { font-size: 1.17rem; letter-spacing: -.03em; }
   .steps li { padding: 1.05rem 1.15rem; }
   .founder h3 span { margin-inline-start: 0; }
 }
+
+.hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: .8rem 1.2rem; }
+.hero-actions > a:last-child { color: var(--cream); font-weight: 700; text-underline-offset: .25em; }
