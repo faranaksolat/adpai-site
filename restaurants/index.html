@@ -1,2 +1,77 @@
 <!doctype html>
-<html lang="ko"><meta charset="utf-8"><title>식당 찾기 | ADPAI</title><p>식당 찾기를 준비 중입니다.</p><a href="../">ADPAI 홈</a></html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="ADPAI에서 지역과 식단에 맞는 식당과 메뉴를 찾아보세요.">
+  <meta name="theme-color" content="#073f41">
+  <title>식당 찾기 | ADPAI</title>
+  <link rel="icon" href="../adpai-icon.png">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="directory.css">
+  <script type="module" src="directory.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner wrap">
+      <a class="brand" href="../" aria-label="ADPAI 홈">
+        <img src="../adpai-mark.png" width="28" height="28" alt="">
+        <span>ADPAI</span>
+      </a>
+      <button id="language" type="button" class="language" lang="en" aria-label="영어로 보기">EN</button>
+    </div>
+  </header>
+
+  <main class="wrap directory">
+    <h1 data-text="title">식당 찾기</h1>
+    <p class="intro" data-text="intro">지역과 식단을 선택하고, 식당별로 조건에 맞는 메뉴를 확인하세요.</p>
+
+    <form id="filters" class="filters">
+      <label>
+        <span data-text="city">지역</span>
+        <select id="city" name="city">
+          <option value="" data-text="allCities">전체 지역</option>
+          <option value="seongnam" data-text="seongnam">성남</option>
+          <option value="seoul" data-text="seoul">서울</option>
+        </select>
+      </label>
+      <label>
+        <span data-text="diet">식단</span>
+        <select id="diet" name="diet">
+          <option value="" data-text="allDiets">모든 메뉴</option>
+          <option value="no-pork" data-text="no-pork">돼지고기 제외</option>
+          <option value="vegetarian" data-text="vegetarian">채식</option>
+          <option value="vegan" data-text="vegan">비건</option>
+        </select>
+      </label>
+      <details class="allergy-picker">
+        <summary data-text="allergies">피할 알레르기 재료</summary>
+        <div id="allergies" class="allergen-list"></div>
+      </details>
+      <button class="button button-lime search" type="submit" data-text="search">검색</button>
+    </form>
+
+    <label class="sample-control">
+      <input id="demo" type="checkbox">
+      <span data-text="tryDemo">예시 데이터로 체험하기</span>
+    </label>
+    <p id="demo-notice" class="notice" hidden data-text="demoNotice">체험용 가상 식당과 메뉴입니다. 실제 방문이나 주문에 사용할 수 없습니다.</p>
+
+    <section id="results" aria-labelledby="results-title">
+      <div class="results-header">
+        <h2 id="results-title" data-text="results">검색 결과</h2>
+        <output id="count" aria-live="polite"></output>
+      </div>
+      <div id="cards" class="cards"></div>
+      <p id="empty" class="empty" data-text="emptyLive">이 조건에 맞는 매장 확인 메뉴가 아직 등록되지 않았습니다.</p>
+    </section>
+    <section id="restaurant" aria-labelledby="restaurant-title" hidden>
+      <a id="back" class="back" href="./" data-text="back">← 검색 결과로</a>
+      <div id="restaurant-heading"></div>
+      <h2 data-text="matching">조건에 맞는 메뉴</h2>
+      <div id="dishes" class="cards"></div>
+      <p id="empty-menu" class="empty" data-text="emptyMenu" hidden>이 식당에서 현재 조건에 맞는 메뉴가 없습니다.</p>
+    </section>
+  </main>
+</body>
+</html>
